@@ -14,7 +14,7 @@ const pokemonList = [
 	},
 ];
 function App() {
-	const pokemonChoice = pokemonList[1];
+	const pokemonChoice = pokemonList[0];
 
 	return (
 		<div className="App">
