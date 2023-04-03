@@ -48,8 +48,16 @@ function App() {
 			{/** Je passe ensuite mon pokemon (pokemonChoise) à mon composant */}
 			<PokemonCard pokemon={pokemonChoice} />
 			<div>
-				<button onClick={handlePrev}>Précédent</button>
-				<button onClick={handleNext}>Suivant</button>
+				{pokemonIndex > 0 ? (
+					<button onClick={handlePrev}>Précédent</button>
+				) : (
+					""
+				)}
+				{pokemonIndex < pokemonList.length - 1 ? (
+					<button onClick={handleNext}>Suivant</button>
+				) : (
+					""
+				)}
 			</div>
 		</div>
 	);
