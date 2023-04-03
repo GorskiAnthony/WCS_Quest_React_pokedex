@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PokemonCard from "./components/PokemonCard";
+import Navbar from "./components/Navbar";
 import "./App.css";
 
 /**
@@ -29,36 +30,22 @@ const pokemonList = [
 function App() {
 	const [pokemonIndex, setPokemonIndex] = useState(0);
 
-	// J'utilise mon state pour récupérer l'index de mon pokemon
-	// dans le tableau de pokemon (pokemonList)
 	const pokemonChoice = pokemonList[pokemonIndex];
-
-	// S'il clique sur suivant, j'incremente pokemonIndex
-	const handleNext = () => {
-		setPokemonIndex(pokemonIndex + 1);
-	};
-
-	// S'il clique sur precedent, je decremente pokemonIndex
-	const handlePrev = () => {
-		setPokemonIndex(pokemonIndex - 1);
-	};
 
 	return (
 		<div className="App">
-			{/** Je passe ensuite mon pokemon (pokemonChoise) à mon composant */}
 			<PokemonCard pokemon={pokemonChoice} />
-			<div>
-				{pokemonIndex > 0 ? (
-					<button onClick={handlePrev}>Précédent</button>
-				) : (
-					""
-				)}
-				{pokemonIndex < pokemonList.length - 1 ? (
-					<button onClick={handleNext}>Suivant</button>
-				) : (
-					""
-				)}
-			</div>
+			{/**
+			 * Ici, je passe en props après avoir réfléchi
+			 * - Le state pokemonIndex car il sera manipuler dans le composant Navbar
+			 * - Idem pour la taille du tableau, je fait l'operation ici pour ne pas passer une props en plus (pokemonList)
+			 * - setPokemonIndex pour mettre à jour mon state pokemonIndex
+			 */}
+			<Navbar
+				pokemonIndex={pokemonIndex}
+				pokemonLength={pokemonList.length - 1}
+				setPokemonIndex={setPokemonIndex}
+			/>
 		</div>
 	);
 }
