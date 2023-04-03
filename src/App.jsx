@@ -36,14 +36,10 @@ function App() {
 		<div className="App">
 			<PokemonCard pokemon={pokemonChoice} />
 			{/**
-			 * Ici, je passe en props après avoir réfléchi
-			 * - Le state pokemonIndex car il sera manipuler dans le composant Navbar
-			 * - Idem pour la taille du tableau, je fait l'operation ici pour ne pas passer une props en plus (pokemonList)
-			 * - setPokemonIndex pour mettre à jour mon state pokemonIndex
+			 * J'ai modifier mon composant Navbar, je vais donc modifier mon appel aussi.
 			 */}
 			<Navbar
-				pokemonIndex={pokemonIndex}
-				pokemonLength={pokemonList.length - 1}
+				pokemonList={pokemonList}
 				setPokemonIndex={setPokemonIndex}
 			/>
 		</div>
