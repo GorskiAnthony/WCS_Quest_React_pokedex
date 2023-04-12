@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function PokemonCard({ pokemon }) {
+function PokemonCard({ pokemon, index }) {
 	// ici, je ne desctructure pas encore.
 	// console.log(props, props.pokemon);
 
@@ -17,16 +17,12 @@ function PokemonCard({ pokemon }) {
 
 	return (
 		<figure>
-			{
-				/**
-				 * Du coup, je fais une ternaire pour vérifier si image il y a 😁
-				 */
-				pokemon.imgSrc ? (
-					<img src={pokemon.imgSrc} alt={pokemon.name} />
-				) : (
-					<p>???</p>
-				)
-			}
+			<img
+				src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
+					index + 1
+				}.png`}
+				alt={pokemon.name}
+			/>
 			<figcaption>{pokemon.name}</figcaption>
 		</figure>
 	);
